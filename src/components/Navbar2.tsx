@@ -74,3 +74,4 @@ function Navbar2() {
 }
 
 export default Navbar2;
+
