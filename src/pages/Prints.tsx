@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { paintings } from "./Paintings";
+import { paintings } from "../components/Paintings";
 
 function Prints() {
   const carouselRef = useRef<HTMLDivElement>(null);

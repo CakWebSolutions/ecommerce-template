@@ -4,12 +4,12 @@ import React from 'react';
 function Hero2() {
     return (
         <div className='flex flex-col justify-between h-screen'>
-            <div className='flex flex-col text-center items-center mt-10 space-y-2'>
+            <div className='flex flex-col z-50 text-center items-center mt-10 space-y-2'>
                 <h1 className='text-6xl opacity-60 font-bold'>Joan</h1>
                 <h1 className='text-6xl opacity-60 font-bold'>Popli`s</h1>
                 <h1 className='text-7xl opacity-60'>Gallery</h1>
                 <div>
-                    <button className='bg-[#c4bfbf] transition-opacity duration-300 rounded-2xl p-1 px-3 opacity-60 hover:opacity-100 mt-8'>Get in Contact</button>
+                    <button className='bg-[#c4bfbf] transition-opacity  duration-300 rounded-2xl p-1 px-3 opacity-60 hover:opacity-100 mt-8'>Get in Contact</button>
                 </div>
             </div>
 
