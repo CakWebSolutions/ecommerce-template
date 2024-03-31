@@ -1,14 +1,18 @@
-import Hero from "../components/Hero";
+// Assuming Hero2 is also a component, it should be imported from your components directory
 import Hero2 from "../components/Hero2";
-import Navbar2 from "../components/Navbar2";
-import Portfolio from "../components/Portfolio";
+import Portfolio from "../pages/Portfolio";
+import Navbar2 from "../pages/Navbar2"; // Adjusted import path
+
+import React from "react";
 
 export default function Home() {
   return (
-    <main>
-      <Navbar2 />
-      <Hero2 />
-      <Portfolio />
-    </main>
+    <React.StrictMode>
+      <main className="flex flex-row">
+        <Navbar2 />
+        <Hero2 />
+        <Portfolio />
+      </main>
+    </React.StrictMode>
   );
 }

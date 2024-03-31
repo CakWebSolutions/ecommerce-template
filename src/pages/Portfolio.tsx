@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import "@/styles/globals.css";
-import PortfolioCarousel from "./PortfolioCarousel";
+import PortfolioCarousel from "../components/PortfolioCarousel";
 
 const Portfolio = () => {
   return (
