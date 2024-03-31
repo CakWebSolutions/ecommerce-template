@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useRef } from "react";
-import { paintings } from "./Paintings";
+import { paintings } from "../components/Paintings";
 
-function Portfolio() {
+function Prints() {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
@@ -65,4 +65,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio;
+export default Prints;
