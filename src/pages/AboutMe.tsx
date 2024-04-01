@@ -1,8 +1,15 @@
 import React from 'react'
+import Navbar from './Navbar'
+import "@/styles/globals.css";
 
 function AboutMe() {
     return (
-        <div>AboutMe</div>
+        <div>
+            <Navbar />
+            <div>
+                AboutMe
+            </div>
+        </div>
     )
 }
 
