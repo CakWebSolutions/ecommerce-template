@@ -51,7 +51,10 @@ function Navbar() {
 
 
   return (
-    <div className="absolute z-10 top-0 left-0">
+    <div className="absolute z-10 top-0 left-0"
+      style={{
+        zIndex: 100
+      }}>
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -59,9 +62,6 @@ function Navbar() {
        hover:space-x-0 bg-white shadow-2xl transition-all duration-[1s] ease-in-out 
         ${isHovered ? "w-44" : "w-16"
           }`}
-        style={{
-          zIndex: 100
-        }}
       >
         <div className="flex flex-col items-center mb-20">
           {/* Initials - Apply hideStyle when hovered */}

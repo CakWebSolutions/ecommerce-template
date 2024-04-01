@@ -2,7 +2,7 @@
 import React from "react";
 import "@/styles/globals.css";
 import PortfolioCarousel from "../components/portfolio/PortfolioCarousel";
-import Navbar from "./Navbar copy";
+import Navbar from "./Navbar";
 
 const Portfolio = () => {
   return (
