@@ -10,10 +10,10 @@ function Navbar2() {
 
   const icons = [
     { name: "home", label: "Home", path: "/" },
-    { name: "paintings", label: "Portfolio", path: "/Portfolio" },
-    { name: "store", label: "Prints", path: "/prints" },
-    { name: "shop", label: "Cart", path: "/cart" },
-    { name: "info", label: "About Me", path: "/about-me" },
+    { name: "paintings", label: "Portfolio", path: "./Portfolio" },
+    { name: "store", label: "Prints", path: "./prints" },
+    { name: "shop", label: "Cart", path: "./cart" },
+    { name: "info", label: "About Me", path: "./about-me" },
   ];
 
   const alwaysShowStyle = {
