@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { paintings } from "../components/Paintings";
-import Navbar2 from "../components/Navbar2";
+import Navbar from "./Navbar";
 import "@/styles/globals.css";
 
 function Prints() {
@@ -21,7 +21,7 @@ function Prints() {
   };
   return (
     <>
-      <Navbar2 />
+      <Navbar />
       <div className="w-screen h-screen">
         <div className="flex flex-col w-full">
           <div className="flex flex-row w-full space-x-[800px] space ml-[150px] mt-[100px] ">

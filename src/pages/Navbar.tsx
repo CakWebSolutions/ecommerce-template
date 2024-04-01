@@ -1,20 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation"; // Assuming usePathname is available in your Next.js version
 
-function Navbar2() {
+function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const pathname = usePathname();
 
   const icons = [
     { name: "home", label: "Home", path: "/" },
-    { name: "paintings", label: "Portfolio", path: "/Portfolio" },
-    { name: "store", label: "Prints", path: "/Prints" },
-    { name: "shop", label: "Cart", path: "/cart" },
-    { name: "info", label: "About Me", path: "/about-me" },
+    { name: "paintings", label: "Portfolio", path: "./Portfolio" },
+    { name: "store", label: "Prints", path: "./Prints" },
+    { name: "shop", label: "Cart", path: "./Cart" },
+    { name: "info", label: "About Me", path: "./AboutMe" },
   ];
 
   const alwaysShowStyle = {
@@ -38,9 +37,8 @@ function Navbar2() {
         onMouseLeave={() => setIsHovered(false)}
         className={`flex flex-col justify-between items-center h-screen py-4 space-x-12 hover:space-x-0 bg-white shadow-2xl transition-all duration-700 ease-in-out ${isHovered ? "w-44" : "w-16"
           }`}
-        style={{ zIndex: 1000 }}
+        style={{ zIndex: 100 }}
       >
-
         <div className="flex flex-col items-center mb-20">
           {/* Initials - Apply hideStyle when hovered */}
           <div
@@ -59,8 +57,6 @@ function Navbar2() {
             <h1 className="text-center ml-6">Popli</h1>
           </div>
         </div>
-
-
         <div className="">
           <div className="flex flex-col space-y-12">
             {icons.map((icon, index) => (
@@ -93,14 +89,10 @@ function Navbar2() {
             ))}
           </div>
         </div>
-
-
         <div></div> {/*empty div for the layout*/}
-
-
       </div>
     </div>
   );
 }
 
-export default Navbar2;
+export default Navbar;
