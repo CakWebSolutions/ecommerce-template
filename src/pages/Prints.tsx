@@ -45,7 +45,7 @@ function Prints() {
               {paintings.map((painting) => (
                 <div
                   key={painting.id}
-                  className="flex flex-col min-w-max overflow-x-auto hover:bg-white hover:shadow-xl mt-6 h-[310px] hover:mt-0 hover:h-[500px] py-8 px-8 ml-8"
+                  className="flex flex-col min-w-max overflow-x-auto transition-height duration-1000 ease-in-out hover:bg-white hover:mb-8 hover:shadow-xl mt-6 h-[310px] hover:mt-0 hover:h-[450px] py-8 px-8 ml-8 "
                 >
                   <img
                     src={painting.image}
