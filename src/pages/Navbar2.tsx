@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState } from "react";
@@ -11,7 +12,7 @@ function Navbar2() {
   const icons = [
     { name: "home", label: "Home", path: "/" },
     { name: "paintings", label: "Portfolio", path: "/Portfolio" },
-    { name: "store", label: "Prints", path: "./Prints" },
+    { name: "store", label: "Prints", path: "/Prints" },
     { name: "shop", label: "Cart", path: "/cart" },
     { name: "info", label: "About Me", path: "/about-me" },
   ];
@@ -39,6 +40,7 @@ function Navbar2() {
           }`}
         style={{ zIndex: 1000 }}
       >
+
         <div className="flex flex-col items-center mb-20">
           {/* Initials - Apply hideStyle when hovered */}
           <div
@@ -57,6 +59,8 @@ function Navbar2() {
             <h1 className="text-center ml-6">Popli</h1>
           </div>
         </div>
+
+
         <div className="">
           <div className="flex flex-col space-y-12">
             {icons.map((icon, index) => (
@@ -89,7 +93,11 @@ function Navbar2() {
             ))}
           </div>
         </div>
+
+
         <div></div> {/*empty div for the layout*/}
+
+
       </div>
     </div>
   );
