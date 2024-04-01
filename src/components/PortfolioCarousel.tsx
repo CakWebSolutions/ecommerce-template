@@ -1,9 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "@/styles/globals.css";
 
 const imageList = [
-  "/couch.png",
-  "/pikturaSyri.png",
+  "/pic1.png",
+  "/pic2.png",
+  "/pic3.png",
   // Ensure all paths are valid and complete your image list
 ];
 
@@ -23,32 +24,35 @@ function PortfolioCarousel() {
   };
 
   return (
-    <div className="relative max-w-lg mx-auto overflow-hidden flex items-center justify-between">
-      <div className="absolute inset-y-0 left-0 flex items-center">
+    <div className="flex flex-col justify-items-start">
+      <div className="absolute left-[100px] translate-y-48 ">
         {" "}
-        {/* Div for the left arrow */}
         <button
           onClick={goToPrevious}
-          className="bg-transparent border-none cursor-pointer z-10 text-4xl lg:text-6xl" // Larger arrows
+          className=" text-black border-none cursor-pointer z-10 text-8xl" // Larger arrows
         >
           ‹
         </button>
       </div>
-      <div className="flex justify-center w-full">
+      <div className="transform -translate-y-28 translate-x-3">
         <img
           src={imageList[currentIndex]}
-          className="w-[195px] h-[244px] sm:w-[320px] sm:h-[400px] fadeIn"
+          className="w-[195px] h-[244px] sm:w-[250px] sm:h-[300px] shadow-2xl"
         />
       </div>
-      <div className="absolute inset-y-0 right-0 flex items-center">
+      <div className="absolute right-[100px] translate-y-48">
         {" "}
-        {/* Div for the right arrow */}
         <button
           onClick={goToNext}
-          className="bg-transparent border-none cursor-pointer z-10 text-4xl lg:text-6xl" // Larger arrows
+          className="text-black border-none cursor-pointer z-10 text-8xl" // Larger arrows
         >
           ›
         </button>
+      </div>
+      <div className="-translate-y-28 translate-x-3 py-5">
+        <h1 className="shadow-text pt-10 text-center text-black text-2xl ">
+          Name of the Painting
+        </h1>
       </div>
     </div>
   );
