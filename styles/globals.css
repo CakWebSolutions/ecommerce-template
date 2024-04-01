@@ -1,16 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap");
 
 ::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}
 
-  .shadow-text {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* x-offset, y-offset, blur-radius, color */
-  }
-  
+.shadow-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* x-offset, y-offset, blur-radius, color */
+}
 
 .shadow-bottom-right {
   box-shadow: 24px 21px 50px 5px rgba(56, 49, 63, 0.44);
+}
+
+.jacques-francois-regular {
+  font-family: "Jacques Francois", serif;
 }
