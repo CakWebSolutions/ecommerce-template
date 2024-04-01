@@ -9,9 +9,8 @@ function Hero2() {
     };
 
     return (
-        <div className="flex flex-row">
-            <Navbar />
-            <div className='flex flex-col justify-between bg-white h-screen'>
+        <div className="">
+            <div className='flex flex-row sm:flex-col justify-between bg-white h-screen'>
                 <div className='flex flex-col z-50 text-center text-black items-center mt-10 space-y-2'>
                     <h1 className='text-6xl opacity-60 font-bold'>Joan</h1>
                     <h1 className='text-6xl opacity-60 font-bold'>Popli`s</h1>
@@ -21,7 +20,7 @@ function Hero2() {
                     </div>
                 </div>
 
-                <div className='flex flex-row w-screen overflow-hidden pl-16 space-x-4 items-end -mt-56 relative' style={{ zIndex: 10 }}>
+                <div className='flex flex-row w-screen pl-16 overflow-hidden space-x-4 items-end -mt-56 relative' style={{ zIndex: 10 }}>
                     {['/pic1.png', '/pic2.png', '/pic3.png', '/pic4.png'].map((pic, i) => (
                         <div key={i} className="group max-h-[85vh] relative w-auto  hover:opacity-100 flex items-end">
                             <img src={pic} alt='paintings' className={`max-h-full ${boxShadow}`} />
