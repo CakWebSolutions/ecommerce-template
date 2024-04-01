@@ -1,37 +1,37 @@
-import React from 'react';
-import Artwork from './Artwork';
-import ArtistProfile from './ArtistProfile';
-import Navbar from './Navbar';
+/* eslint-disable @next/next/no-img-element */
+import React from "react";
+import Navbar from "../pages/Navbar";
 
-function Hero() {
+function Hero2() {
+
+    const boxShadow = {
+        boxShadow: '5px 21px 15px 5px #000000',
+    };
+
     return (
-
-        <div className='flex flex-col justify-center space-y-14 w-screen'>
-            <Navbar />
-            <section className='flex flex-row items-center space-y-10 justify-between w-full p-8'>
-                <h1 className='text-6xl'>Featured Paintings</h1>
-                <img className='h-12 w-12' src='/arrow.png' alt='Next' />
-            </section>
-
-            <section className='flex flex-row justify-start space-x-24 items-center px-24 overflow-x-auto'>
-                <Artwork imageSrc='/art.png' title='Wallowing Breeze' artist='Shqet DiCaprio' details='Oil on Canvas, 2008' />
-                <Artwork imageSrc='/art2.png' title='Wallowing Breeze' artist='Shqet DiCaprio' details='Oil on Canvas, 2008' />
-                <Artwork imageSrc='/art3.png' title='Wallowing Breeze' artist='Shqet DiCaprio' details='Oil on Canvas, 2008' />
-                <Artwork imageSrc='/art4.png' title='Wallowing Breeze' artist='Shqet DiCaprio' details='Oil on Canvas, 2008' />
-                {/* Repeat for other artworks */}
-            </section>
-
-            <section className='flex flex-col py-10 space-y-10 px-24 bg-[#979797]'>
-                <h1>Featured Artists</h1>
-                <div className='flex flex-row items-center justify-evenly'>
-                    <ArtistProfile imageSrc='/artist.png' name='Mike Lambert' location='Painter, Texas' />
-                    <ArtistProfile imageSrc='/artist2.png' name='Mike Lambert' location='Painter, Texas' />
-                    <ArtistProfile imageSrc='/artist33.png' name='Mike Lambert' location='Painter, Texas' />
-                    {/* Repeat for other artists */}
+        <div className="">
+            <div className='flex flex-row sm:flex-col justify-between bg-white h-screen'>
+                <div className='flex flex-col z-50 text-center text-black items-center mt-10 space-y-2'>
+                    <h1 className='text-6xl opacity-60 font-bold'>Joan</h1>
+                    <h1 className='text-6xl opacity-60 font-bold'>Popli`s</h1>
+                    <h1 className='text-7xl opacity-60'>Gallery</h1>
+                    <div>
+                        <button className='bg-[#c4bfbf] transition-opacity duration-300 rounded-2xl p-1 px-3 opacity-60 hover:opacity-100 mt-8'>Get in Contact</button>
+                    </div>
                 </div>
-            </section>
+
+                <div className='flex flex-row w-screen pl-16 overflow-hidden space-x-4 items-end -mt-56 relative' style={{ zIndex: 10 }}>
+                    {['/pic1.png', '/pic2.png', '/pic3.png', '/pic4.png'].map((pic, i) => (
+                        <div key={i} className="group max-h-[85vh] relative w-auto  hover:opacity-100 flex items-end">
+                            <img src={pic} alt='paintings' className={`max-h-full ${boxShadow}`} />
+                            {/* Adjust opacity on hover within the group */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white group-hover:opacity-0 transition-opacity duration-500"></div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }
 
-export default Hero;
+export default Hero2;

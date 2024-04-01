@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import "@/styles/globals.css";
-import PortfolioCarousel from "../components/PortfolioCarousel";
-import Navbar2 from "./Navbar2";
+import PortfolioCarousel from "../components/portfolio/PortfolioCarousel";
+import Navbar from "./Navbar";
 
 const Portfolio = () => {
   return (
     <div>
-      <Navbar2 />
+      <Navbar />
       <div className="background background-sm">
         <style jsx>{`
           .background {
