@@ -1,4 +1,3 @@
-
 "use client";
 import React from "react";
 import "@/styles/globals.css";
@@ -28,7 +27,6 @@ const Portfolio = () => {
           }
         `}</style>
         <div className="pb-36 mb-36 flex flex-col justify-items-center text-center space-y-7">
-          <PortfolioCarousel />
 
           <h1 className="text-2xl font-semibold">Name of the painting</h1>
         </div>

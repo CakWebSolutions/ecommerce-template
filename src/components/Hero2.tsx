@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
+import React from "react";
 
 function Hero2() {
     return (
@@ -13,7 +13,7 @@ function Hero2() {
                 </div>
             </div>
 
-            <div className='flex flex-row w-screen overflow-hidden pl-16 space-x-4 items-end -mt-28 relative' style={{ zIndex: 0 }}>
+            <div className='flex flex-row w-screen overflow-hidden  pl-16 space-x-4 items-end -mt-32 relative' style={{ zIndex: 0 }}>
                 {['/pic1.png', '/pic2.png', '/pic3.png', '/pic4.png'].map((pic, i) => (
                     <div key={i} className="group max-h-[70vh] relative w-auto hover:shadow-2xl flex items-end">
                         <img src={pic} alt='paintings' className="max-h-full" />
