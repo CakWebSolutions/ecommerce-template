@@ -7,9 +7,7 @@ import React from "react";
 export default function Home() {
   return (
     <React.StrictMode>
-      <main className="">
-        <Hero2 />
-      </main>
+      <Hero2 />
     </React.StrictMode>
   );
 }
