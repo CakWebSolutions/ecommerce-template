@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { paintings } from "../components/Paintings";
-import Navbar2 from "./Navbar2";
+import Navbar2 from "../components/Navbar2";
 import "@/styles/globals.css";
 
 function Prints() {
