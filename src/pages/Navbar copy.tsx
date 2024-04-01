@@ -16,19 +16,39 @@ function Navbar() {
     { name: "info", label: "Info", path: "./AboutMe" },
   ];
 
-  const alwaysShowStyle = {
-    transition: "opacity 0.5s ease-in-out",
-    opacity: 1,
-  };
   const showStyle = {
     opacity: 1,
-    transition: "opacity 0.6s ease-in-out",
+    transition: "opacity 0.9s ease-in-out",
   };
 
   const hideStyle = {
     opacity: 0,
-    transition: "opacity 0.1s ease-in-out",
+    transition: "opacity 0.2s ease-in-out",
   };
+
+
+  const iconshowStyle = {
+    opacity: 1,
+    transition: "opacity 0.7s ease-in-out",
+  };
+
+  const iconhideStyle = {
+    opacity: 0,
+    transition: "opacity 0s ease-in-out",
+  };
+
+  const textshowStyle = {
+    opacity: 1,
+    transition: "opacity 1.5s ease-in-out",
+  };
+
+  const texthideStyle = {
+    opacity: 0,
+    transition: "opacity 0s ease-in-out",
+  };
+
+
+
 
   return (
     <div className="absolute z-10 top-0 left-0">
@@ -36,10 +56,12 @@ function Navbar() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className={`flex flex-col justify-between items-center h-screen py-4 item space-x-16
-       hover:space-x-0 bg-white shadow-2xl transition-all duration-700 ease-in-out 
+       hover:space-x-0 bg-white shadow-2xl transition-all duration-[1s] ease-in-out 
         ${isHovered ? "w-44" : "w-16"
           }`}
-        style={{ zIndex: 100 }}
+        style={{
+          zIndex: 100
+        }}
       >
         <div className="flex flex-col items-center mb-20">
           {/* Initials - Apply hideStyle when hovered */}
@@ -63,35 +85,16 @@ function Navbar() {
 
 
         <div className="">
-          <div className="flex flex-col space-y-12">
+          <div className="flex flex-col items-center mt-24 space-y-12">
             {icons.map((icon, index) => (
-              <Link key={index} href={icon.path} legacyBehavior>
-                <a
-                  className={`flex items w-full`}
-                >
-                  <img
-                    className={`w-5 h-5`}
-                    style={{
-                      transition: "opacity 0.5s ease-in-out",
-                      filter:
-                        pathname === icon.path ? "brightness(120%)" : "none",
-                    }} // Adjusted for visibility
-                    src={`/${icon.name}.png`}
-                    alt={icon.label}
-                  />
-
-
-                  <span
-                    style={{
-                      transition: "opacity 0.5s ease-in-out",
-                      opacity: isHovered ? 1 : 0,
-                      visibility: isHovered ? "visible" : "hidden",
-                    }}
-                    className="ml-5 flex-grow"
-                  >
+              <Link legacyBehavior key={index} href={icon.path}>
+                <a className="group flex items-center w-full">
+                  {/* Icon Always Visible */}
+                  <img src={`/${icon.name}.png`} alt={icon.label} className="w-5 h-5 transition-opacity duration-500" />
+                  {/* Text Label Slides In */}
+                  <span className={`ml-5 transition-transform duration-700 ${isHovered ? 'opacity-100 translate-x-0' : '-translate-x-20 opacity-0'}`}>
                     {icon.label}
                   </span>
-
                 </a>
               </Link>
             ))}
