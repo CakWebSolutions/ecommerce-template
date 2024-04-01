@@ -1,20 +1,26 @@
 "use client";
 import React from "react";
 import "@/styles/globals.css";
+import PortfolioCarousel from "../components/PortfolioCarousel";
+import Navbar2 from "./Navbar2";
 
 const Portfolio = () => {
   return (
-    <>
-      <div className=" background background-sm">
+    <div>
+      <Navbar2 />
+      <div className="background background-sm">
         <style jsx>{`
           .background {
             background-image: url("/couch.png");
-            background-size: cover;
+            background-size: fill;
             background-position: center;
-            height: 120vh;
+            height: screen;
+            width: screen;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-left: auto;
+            padding-bottom: 40px;
           }
           .background-sm {
             background-image: url("/couch.png");
@@ -26,14 +32,10 @@ const Portfolio = () => {
             align-items: center;
           }
         `}</style>
-        <div className="pb-36 mb-36 flex flex-col justify-items-center text-center space-y-7">
-
-          <h1 className="text-2xl font-semibold">Name of the painting</h1>
-        </div>
+        <PortfolioCarousel />
       </div>
-    </>
+    </div>
   );
 };
-
 
 export default Portfolio;
