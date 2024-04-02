@@ -40,7 +40,7 @@ function Navbar() {
 
 
   return (
-    <div className="relative lg:absolute lg:top-0 lg:left-0"
+    <div className="relative fixed lg:absolute lg:top-0 lg:left-0"
       style={{ zIndex: 100 }}
     >
       <div
@@ -91,16 +91,33 @@ function Navbar() {
           </button>
         </div>
 
-
+        {/* Navbar for small screens */}
         <div
-          className={`fixed inset-0 bg-white z-30 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-            } transition-transform duration-300 ease-in-out flex flex-col items-center justify-center space-y-12 lg:hidden`}
+          className={`lg:hidden fixed inset-0 bg-white z-30 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            } transition-transform duration-300 ease-in-out flex flex-col items-start px-6 md:px-16 justify-center space-y-12 lg:hidden`}
         >
           {icons.map((icon, index) => (
             <Link legacyBehavior key={index} href={icon.path}>
-              <a className="flex flex-row items-center justify-start">
+              <a className="flex flex-row items-center justify-start space-x-12 md:space-x-16">
+                <img src={`/${icon.name}.png`} alt={icon.label} className="w-8 h-8 md:w-12 md:h-12" />
+                <span className=" text-black font-playfairRegular text-xl md:text-3xl">{icon.label}</span>
+              </a>
+            </Link>
+          ))}
+        </div>
+
+
+        {/* Navbar for mid screens */}
+
+        <div
+          className={`sm:hidden lg:hidden fixed inset-0 bg-white z-30 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            } transition-transform duration-300 ease-in-out flex flex-col items-start px-6 justify-center space-y-12 lg:hidden`}
+        >
+          {icons.map((icon, index) => (
+            <Link legacyBehavior key={index} href={icon.path}>
+              <a className="flex flex-row items-center justify-start space-x-12">
                 <img src={`/${icon.name}.png`} alt={icon.label} className="w-8 h-8" />
-                <span className="ml-5 text-xl">{icon.label}</span>
+                <span className=" text-black font-playfairRegular text-xl">{icon.label}</span>
               </a>
             </Link>
           ))}
@@ -108,10 +125,10 @@ function Navbar() {
 
 
 
-        {/*Navbar icons onHover transitions*/}
+        {/*Large Screens Navbar icons onHover transitions*/}
         <div className="">
 
-          <div className="hidden lg:flex flex-col items-start justify-center mt-24">
+          <div className="hidden md:hidden lg:flex flex-col items-start justify-center mt-24">
             {icons.map((icon, index) => (
               <Link legacyBehavior key={index} href={icon.path}>
                 <a className={`group flex space-y-8 items-end ${isHovered ? '' : ''} `}>
