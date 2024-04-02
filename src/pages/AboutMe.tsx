@@ -36,18 +36,18 @@ function AboutMe() {
     }, 2000);
   };
   return (
-    <div className="w-screen h-screen bg-white">
+    <div className="w-screen lg:h-screen bg-white">
       <Navbar />
-      <div className="flex flex-row">
-        <div className="bg-[#F4F4F2] w-[900px] h-screen flex items-center justify-center">
+      <div className="flex lg:flex-row flex-col">
+        <div className="bg-[#F4F4F2] lg:w-[900px] w-screen lg:h-screen h-[400px] flex items-center justify-center">
           <img
             src="/aboutMe.png"
             alt="Joan Popli"
-            className="w-[550px] h-[593px] ml-[80px] mt-6 hover:scale-105 transition-all duration-500"
+            className="lg:w-[550px] lg:h-[593px] lg:ml-[80px] lg:mt-6 w-[300px] h-[340px] lg:hover:scale-105 transition-all duration-500"
           />
         </div>
-        <div className="flex flex-col w-[900px] justify-center">
-          <div className="flex flex-col space-y-4 px-16">
+        <div className="flex flex-col lg:w-[900px]  justify-center">
+          <div className="flex flex-col space-y-4 lg:py-12 md:py-8 px-16">
             <h1 className="font-bold font-jacques text-3xl text-black opacity-60">
               Joan Popli
             </h1>
@@ -64,8 +64,8 @@ function AboutMe() {
               facere architecto maiores consequatur blanditiis quod aspernatur
               quidem, sed consequuntur accusamus!
             </p>
-            <div className="flex flex-row justify-center items-center space-x-12 py-4">
-              <div className="flex flex-row items-center justify-center gap-2 cursor-pointer hover:scale-105 transition-all duration-300">
+            <div className="flex lg:flex-row md:flex-row flex-col items-start justify-center space-y-4 lg:items-center lg:space-x-12 md:space-x-12 md:py-4 lg:py-4">
+              <div className="flex flex-row items-center justify-center gap-2 mt-4 cursor-pointer hover:scale-105 transition-all duration-300">
                 <img
                   src="/instagram.png"
                   alt="Instagram Icon"
@@ -85,25 +85,25 @@ function AboutMe() {
                   @joanpopli
                 </h1>
               </div>
-              <div className="flex flex-row justify-center items-center gap-4 cursor-pointer hover:scale-105 transition-all duration-300">
+              <div className="flex flex-row justify-center items-center lg:gap-4 gap-2 cursor-pointer hover:scale-105 transition-all duration-300">
                 <img src="/mail.png" alt="Mail Icon" className="w-8 h-6" />
                 <h1 className="font-jacques text-black opacity-60">
                   joanpopli@gmail.com
                 </h1>
               </div>
             </div>
-            <h1 className="text-center font-jacques py-4 text-black opacity-60 text-2xl">
+            <h1 className="lg:text-center md:text-center text-start font-jacques py-4 text-black opacity-60 text-2xl">
               Contact Me Here!
             </h1>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex px-4 flex-col space-y-8 sm:w-auto w-[300px] mx-auto"
+              className="flex lg:px-4 flex-col items-center justify-center lg:pb-0 pb-8 space-y-8 lg:w-auto lg:mx-auto"
             >
               <div className="flex space-x-2">
                 <input
                   {...register("name", { required: "*The name is Missing" })}
                   placeholder={errors.name ? errors.name.message : "Full Name"}
-                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[300px] placeholder:font-jacques bg-white shadow-custom ${
+                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[170px] md:w-[250px] lg:w-[300px] placeholder:font-jacques bg-white shadow-custom ${
                     errors.name ? "text-black opacity-60 font-jacques" : ""
                   }`}
                   type="text"
@@ -120,7 +120,7 @@ function AboutMe() {
                   placeholder={
                     errors.email ? (errors.email.message as string) : "Email"
                   }
-                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[300px] placeholder:font-jacques bg-white shadow-custom ${
+                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[170px] md:w-[250px] lg:w-[300px] placeholder:font-jacques bg-white shadow-custom ${
                     errors.email ? "text-black opacity-60 font-jacques" : ""
                   }`}
                   type="email"
@@ -133,7 +133,7 @@ function AboutMe() {
                 placeholder={
                   errors.subject ? errors.subject.message : "Subject"
                 }
-                className={`text-black placeholder:text-black px-4 placeholder:opacity-60 font-jacques outline-none h-[40px] placeholder:font-jacques bg-white shadow-custom ${
+                className={`text-black placeholder:text-black px-4 placeholder:opacity-60 font-jacques outline-none w-[350px] md:w-[510px] lg:w-full h-[40px] placeholder:font-jacques bg-white shadow-custom ${
                   errors.subject ? "text-black opacity-60  font-jacques" : ""
                 }`}
                 type="text"
@@ -145,7 +145,7 @@ function AboutMe() {
                 placeholder={
                   errors.message ? errors.message.message : "Message"
                 }
-                className={`text-black placeholder:text-black placeholder:opacity-60 shadow-custom px-4 py-2 font-jacques h-[100px] outline-none placeholder:font-jacques resize-none bg-white shadow-custom${
+                className={`text-black placeholder:text-black placeholder:opacity-60 shadow-custom px-4 py-2 font-jacques w-[350px] md:w-[510px] h-[100px] lg:w-full outline-none placeholder:font-jacques resize-none bg-white shadow-custom${
                   errors.message ? "text-black opacity-60 font-jacques" : ""
                 }`}
               />
