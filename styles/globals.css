@@ -18,3 +18,11 @@
 .jacques-francois-regular {
   font-family: "Jacques Francois", serif;
 }
+
+
+@font-face {
+  font-family: 'PlayFairDisplaySC-Regular', 'PlayFairDisplaySC-Bold';
+  src: url('/fonts/PlayFairDisplaySC-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

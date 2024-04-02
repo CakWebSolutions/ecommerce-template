@@ -103,9 +103,8 @@ function AboutMe() {
                 <input
                   {...register("name", { required: "*The name is Missing" })}
                   placeholder={errors.name ? errors.name.message : "Full Name"}
-                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[300px] placeholder:font-jacques bg-white shadow-custom ${
-                    errors.name ? "text-black opacity-60 font-jacques" : ""
-                  }`}
+                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[300px] placeholder:font-jacques bg-white shadow-custom ${errors.name ? "text-black opacity-60 font-jacques" : ""
+                    }`}
                   type="text"
                 />
 
@@ -120,9 +119,8 @@ function AboutMe() {
                   placeholder={
                     errors.email ? (errors.email.message as string) : "Email"
                   }
-                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[300px] placeholder:font-jacques bg-white shadow-custom ${
-                    errors.email ? "text-black opacity-60 font-jacques" : ""
-                  }`}
+                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[300px] placeholder:font-jacques bg-white shadow-custom ${errors.email ? "text-black opacity-60 font-jacques" : ""
+                    }`}
                   type="email"
                 />
               </div>
@@ -133,9 +131,8 @@ function AboutMe() {
                 placeholder={
                   errors.subject ? errors.subject.message : "Subject"
                 }
-                className={`text-black placeholder:text-black px-4 placeholder:opacity-60 font-jacques outline-none h-[40px] placeholder:font-jacques bg-white shadow-custom ${
-                  errors.subject ? "text-black opacity-60  font-jacques" : ""
-                }`}
+                className={`text-black placeholder:text-black px-4 placeholder:opacity-60 font-jacques outline-none h-[40px] placeholder:font-jacques bg-white shadow-custom ${errors.subject ? "text-black opacity-60  font-jacques" : ""
+                  }`}
                 type="text"
               />
               <textarea
@@ -145,19 +142,17 @@ function AboutMe() {
                 placeholder={
                   errors.message ? errors.message.message : "Message"
                 }
-                className={`text-black placeholder:text-black placeholder:opacity-60 shadow-custom px-4 py-2 font-jacques h-[100px] outline-none placeholder:font-jacques resize-none bg-white shadow-custom${
-                  errors.message ? "text-black opacity-60 font-jacques" : ""
-                }`}
+                className={`text-black placeholder:text-black placeholder:opacity-60 shadow-custom px-4 py-2 font-jacques h-[100px] outline-none placeholder:font-jacques resize-none bg-white shadow-custom${errors.message ? "text-black opacity-60 font-jacques" : ""
+                  }`}
               />
               <div className="flex justify-center">
                 <button
                   type="submit"
                   disabled={isSubmitting || Object.keys(errors).length > 0}
-                  className={`bg-[#F4F4F2] text-xl font-typewriter   w-40 h-12 ${
-                    isSubmitting
+                  className={`bg-[#F4F4F2] text-xl font-typewriter   w-40 h-12 ${isSubmitting
                       ? "cursor-not-allowed opacity-50"
                       : "hover:bg-[#EAEAEA] hover:duration-500 "
-                  } rounded-[34px] shadow-custom text-black font-bold font-jacques transition-all duration-300 hover:scale-105`}
+                    } rounded-[34px] shadow-custom text-black font-bold font-jacques transition-all duration-300 hover:scale-105`}
                 >
                   {isSubmitting ? "Sending..." : "Send"}
                 </button>

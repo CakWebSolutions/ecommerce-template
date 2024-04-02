@@ -7,7 +7,7 @@ import React from "react";
 export default function Home() {
   return (
     <React.StrictMode>
-      <main className="flex flex-col sm:flex-row">
+      <main className="flex flex-col lg:flex-row">
         <Navbar />
         <Hero2 />
       </main>
