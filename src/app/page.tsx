@@ -1,6 +1,6 @@
 // Assuming Hero2 is also a component, it should be imported from your components directory
 import Hero2 from "../components/Hero";
-import Navbar from "../pages/Navbar copy";
+import Navbar from "../pages/Navbar";
 
 import React from "react";
 
