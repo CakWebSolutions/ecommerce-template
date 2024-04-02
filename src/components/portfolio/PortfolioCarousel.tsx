@@ -1,58 +1,73 @@
-import React, { useState } from "react";
-import "@/styles/globals.css";
+import React, { useEffect, useState } from "react";
+// Assuming "@/styles/globals.css" is correctly imported elsewhere in your app
 
-const imageList = [
-  { src: "/pic1.png", name: "Image Name 1" },
-  { src: "/pic2.png", name: "Image Name 2" },
-  { src: "/pic3.png", name: "Image Name 3" },
-  // Continue with your images
-];
+interface DataItem {
+  _id: string;
+  name: string;
+  index: number;
+  path_to_src: string;
+  costs: string;
+  description: string;
+}
+
 function PortfolioCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const currentImage = imageList[currentIndex]; // Access the current image object
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [dataItems, setDataItems] = useState<DataItem[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch("/api/SampleData");
+        if (!res.ok) throw new Error("Data could not be fetched");
+        const data: DataItem[] = await res.json();
+        setDataItems(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const goToPrevious = () => {
-    const newIndex =
-      currentIndex === 0 ? imageList.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? dataItems.length - 1 : prevIndex - 1
+    );
   };
 
   const goToNext = () => {
-    const newIndex =
-      currentIndex === imageList.length - 1 ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex((prevIndex) =>
+      prevIndex === dataItems.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
+  // Display only the current item
+  const currentItem = dataItems[currentIndex];
+
   return (
-    <div className="flex flex-col justify-items-start">
-      <div className="absolute left-[200px] translate-y-48 ">
-        <button
-          onClick={goToPrevious}
-          className="text-black border-none cursor-pointer z-10 text-8xl" // Larger arrows
-        >
-          ‹
-        </button>
-      </div>
-      <div className="transform -translate-y-28 translate-x-3">
-        <img
-          src={currentImage.src} // Use src from currentImage
-          className="w-[195px] h-[244px] sm:w-[250px] sm:h-[300px] shadow-bottom-right"
-        />
-      </div>
-      <div className="absolute right-[200px] translate-y-48">
-        <button
-          onClick={goToNext}
-          className="text-black border-none cursor-pointer z-10 text-8xl" // Larger arrows
-        >
-          ›
-        </button>
-      </div>
-      <div className="-translate-y-32 translate-x-3 py-5">
-        {/* Use name from currentImage */}
-        <h1 className="shadow-text pt-10 text-center text-black text-xl ">
-          {currentImage.name}
-        </h1>
-      </div>
+    <div className="relative max-w-lg mx-auto overflow-hidden">
+      <button
+        onClick={goToPrevious}
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none text-2xl cursor-pointer z-10"
+      >
+        ‹
+      </button>
+      {currentItem && (
+        <div className="flex justify-center">
+          <img
+            src={currentItem.path_to_src}
+            alt={currentItem.name}
+            className="w-[195px] h-[244px] sm:w-[250px] sm:h-[300px]"
+          />
+          <h1>{currentItem.name}</h1>
+          {/* Display other details as needed */}
+        </div>
+      )}
+      <button
+        onClick={goToNext}
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none text-2xl cursor-pointer z-10"
+      >
+        ›
+      </button>
     </div>
   );
 }
