@@ -23,18 +23,18 @@ function Prints() {
   return (
     <>
       <Navbar />
-      <div className="w-screen h-screen bg-white">
-        <div className="flex flex-col w-full">
-          <div className="flex flex-row w-full space-x-[800px] space ml-[150px] mt-[100px] ">
-            <div className="flex gap-8">
+      <div className="w-screen lg:h-screen overflow-auto bg-white">
+        <div className="flex flex-col items-center lg:items-start  ">
+          <div className="flex flex-row w-full space-x-[800px] space ml-[150px] lg:mt-[100px] ">
+            <div className="flex gap-8 w-[300px] lg:bg-transparent bg-[#F4F4F2] lg:w-screen items-center">
               <button onClick={scrollLeft}>
                 <img
                   src="/arrowPortfolio.png"
                   alt="arrow"
-                  className="h-8 w-14 rotate-180 hover:scale-125 transition-all duration-250"
+                  className="h-8 w-14 rotate-180 lg:opacity-100 opacity-0 hover:scale-125 transition-all duration-250"
                 />
               </button>
-              <h1 className="text-[52px] mb-2 font-jacques text-black opacity-60">
+              <h1 className="text-[52px] lg:bg-transparent mb-2 font-jacques text-black opacity-60">
                 Featured Paintings
               </h1>
             </div>
@@ -42,12 +42,15 @@ function Prints() {
               <img
                 src="/arrowPortfolio.png"
                 alt="arrow"
-                className="h-8 w-14 hover:scale-125 transition-all duration-250"
+                className="h-8 w-14 hover:scale-125 lg:opacity-100 opacity-0 transition-all duration-250"
               />
             </button>
           </div>
-          <div className=" bg-[#F4F4F2] w-screen h-[400px] overflow-visible">
-            <div className="flex w-screen overflow-x-scroll" ref={carouselRef}>
+          <div className=" bg-[#F4F4F2] w-[300px] lg:w-screen lg:h-[400px] h-screen overflow-visible">
+            <div
+              className="flex lg:flex-row flex-col lg:w-screen lg:overflow-x-scroll"
+              ref={carouselRef}
+            >
               {paintings.map((painting) => (
                 <div
                   key={painting.id}
