@@ -36,18 +36,18 @@ function AboutMe() {
     }, 2000);
   };
   return (
-    <div className="w-screen lg:h-screen bg-white">
+    <div className="w-screen lg:h-screen bg-white overflow-auto">
       <Navbar />
       <div className="flex lg:flex-row flex-col">
-        <div className="bg-[#F4F4F2] lg:w-[900px] w-screen lg:h-screen h-[400px] flex items-center justify-center">
+        <div className="bg-[#F4F4F2] lg:w-[700px] w-screen lg:h-auto h-[400px] flex items-center justify-center">
           <img
             src="/aboutMe.png"
             alt="Joan Popli"
-            className="lg:w-[550px] lg:h-[593px] lg:ml-[80px] lg:mt-6 w-[300px] h-[340px] lg:hover:scale-105 transition-all duration-500"
+            className="lg:w-[450px] lg:h-[493px] lg:ml-[80px] lg:-mt-12 md:mt-6 w-[300px] h-[340px] lg:hover:scale-105 transition-all duration-500"
           />
         </div>
         <div className="flex flex-col lg:w-[900px]  justify-center">
-          <div className="flex flex-col space-y-4 lg:py-12 md:py-8 px-16">
+          <div className="flex flex-col space-y-4 lg:py-12 py-6 md:py-8 px-6 md:px-16 lg:px-16">
             <h1 className="font-bold font-jacques text-3xl text-black opacity-60">
               Joan Popli
             </h1>
@@ -64,8 +64,8 @@ function AboutMe() {
               facere architecto maiores consequatur blanditiis quod aspernatur
               quidem, sed consequuntur accusamus!
             </p>
-            <div className="flex lg:flex-row md:flex-row flex-col items-start justify-center space-y-4 lg:items-center lg:space-x-12 md:space-x-12 md:py-4 lg:py-4">
-              <div className="flex flex-row items-center justify-center gap-2 mt-4 cursor-pointer hover:scale-105 transition-all duration-300">
+            <div className="flex lg:flex-row md:flex-row flex-col items-start justify-center space-y-6 py-4 lg:items-center lg:space-x-12 md:space-x-12 md:py-4 lg:py-4">
+              <div className="flex flex-row items-center justify-center gap-2 mt-6 cursor-pointer hover:scale-105 transition-all duration-300">
                 <img
                   src="/instagram.png"
                   alt="Instagram Icon"
@@ -92,7 +92,7 @@ function AboutMe() {
                 </h1>
               </div>
             </div>
-            <h1 className="lg:text-center md:text-center text-start font-jacques py-4 text-black opacity-60 text-2xl">
+            <h1 className="lg:text-center md:text-center text-start font-jacques py-8 sm:py-4 text-black opacity-60 text-2xl">
               Contact Me Here!
             </h1>
             <form
@@ -120,7 +120,7 @@ function AboutMe() {
                   placeholder={
                     errors.email ? (errors.email.message as string) : "Email"
                   }
-                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[300px] placeholder:font-jacques bg-white shadow-custom ${
+                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[170px] md:w-[250px] lg:w-[300px] placeholder:font-jacques bg-white shadow-custom ${
                     errors.email ? "text-black opacity-60 font-jacques" : ""
                   }`}
                   type="email"
@@ -153,10 +153,11 @@ function AboutMe() {
                 <button
                   type="submit"
                   disabled={isSubmitting || Object.keys(errors).length > 0}
-                  className={`bg-[#F4F4F2] text-xl font-typewriter   w-40 h-12 ${isSubmitting
+                  className={`bg-[#F4F4F2] text-xl font-typewriter   w-40 h-12 ${
+                    isSubmitting
                       ? "cursor-not-allowed opacity-50"
                       : "hover:bg-[#EAEAEA] hover:duration-500 "
-                    } rounded-[34px] shadow-custom text-black font-bold font-jacques transition-all duration-300 hover:scale-105`}
+                  } rounded-[34px] shadow-custom text-black font-bold font-jacques transition-all duration-300 hover:scale-105`}
                 >
                   {isSubmitting ? "Sending..." : "Send"}
                 </button>
