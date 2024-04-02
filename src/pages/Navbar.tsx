@@ -48,7 +48,7 @@ function Navbar() {
         onMouseLeave={() => setIsHovered(false)}
 
         className={`flex flex-row sm:flex-col justify-between lg:justify-between lg:items-center h-20 lg:h-screen py-4 item sm:space-x-16
-       sm:hover:space-x-0 bg-white shadow-2xl transition-all duration-[1s] ease-in-out w-screen
+       sm:hover:space-x-0 bg-white overflow-hidden shadow-2xl transition-all duration-[1s] ease-in-out w-screen
         ${isHovered ? "w-full lg:w-44" : "w-full lg:w-16"}`}
       >
 
@@ -59,7 +59,7 @@ function Navbar() {
             style={!isHovered ? showStyle : hideStyle}
             className="flex sm:flex-col text-3xl absolute"
           >
-            <img src="/jp.png" alt="Close" className="w-10 h-10 " />
+            <img src="/jp.png" alt="Close" className="w-10 h-10" />
 
           </div>
           {/* Full Name - Apply showStyle when hovered */}
@@ -131,12 +131,12 @@ function Navbar() {
           <div className="hidden md:hidden lg:flex flex-col items-start justify-center mt-24">
             {icons.map((icon, index) => (
               <Link legacyBehavior key={index} href={icon.path}>
-                <a className={`group flex space-y-8 items-end ${isHovered ? '' : ''} `}>
+                <a className={`group flex hover:opacity-100 opacity-60 transition duration-600 text-gray-500 hover:text-black space-y-8 items-end ${isHovered ? '' : ''} `}>
                   {/* Icon Always Visible */}
 
                   <img
                     src={`/${icon.name}.png`}
-                    alt={icon.label} className={`w-6 h-6 transition-opacity opacity-100 duration-200 
+                    alt={icon.label} className={`w-6 h-6 transition-opacity duration-200 
                      `} />
 
 
@@ -147,7 +147,7 @@ function Navbar() {
                       ? { ...showStyle, transform: "translateX(0) scale(1)", overflow: 'hidden' }
                       : { ...hideStyle, transform: "translateX(-1.5rem) scale(0.1)", overflow: 'hidden' }
                   }
-                    className={`ml-5 text-center text-lg font-playfairBold hover:text-black transition-all transform duration-700`}>
+                    className={`ml-5 text-center text-lg font-playfairBold  transition-all transform duration-700`}>
                     {icon.label}
                   </span>
                 </a>

@@ -6,7 +6,7 @@ function Cart() {
     return (
         <div>
             <Navbar />
-            <div>
+            <div className='w-screen lg:pl-16'>
                 AboutMe
             </div>
         </div>
