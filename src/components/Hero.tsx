@@ -11,7 +11,7 @@ function Hero2() {
 
     return (
         <div className="">
-            <div className='flex flex-col justify-between lg:justify-between bg-white h-screen'>
+            <div className='flex flex-col justify-between items-center lg:justify-between bg-white h-screen'>
                 <div className='flex flex-col z-50 text-center text-black items-center mt-16 md:mt-10 lg:mt-5 space-y-2'>
                     <h1 className='text-6xl font-playfairBold opacity-75 font-bold'>Joan</h1>
                     <h1 className='text-6xl font-playfairBold opacity-70 font-bold'>Popli`s</h1>
@@ -28,16 +28,19 @@ function Hero2() {
                     </div>
                 </div>
 
-                <div className='lg:hidden overflow-y-hidden flex flex-col w-screen space-x-4 items-end -mt-56 relative' style={{ zIndex: 10 }}>
+
+                {/* For md and sm*/}
+                <div className='lg:hidden flex flex-col w-screen overflow-y-hidden space-x-4 items-end -mt-56 relative' style={{ zIndex: 10 }}>
                     {['/pic4.png'].map((pic, i) => (
-                        <div key={i} className="group max-h-screen pt-2 relative w-auto hover:opacity-100 flex items-end">
-                            <img src={pic} alt='paintings' className={`max-h-full ${boxShadow}`} />
+                        <div key={i} className="group flex w-screen max-h-screen pt-2 relative">
+                            <img src={pic} alt='paintings' className={`max-h-full w-screen ${boxShadow}`} />
                             {/* Adjust opacity on hover within the group */}
                             <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white transition-opacity duration-500"></div>
                         </div>
                     ))}
                 </div>
 
+                {/* For lg*/}
                 <div className='hidden lg:flex flex-col lg:flex-row w-screen pl-16 overflow-hidden space-x-4 items-end -mt-56 relative' style={{ zIndex: 10 }}>
                     {['/pic1.png', '/pic2.png', '/pic3.png', '/pic4.png'].map((pic, i) => (
                         <div key={i} className="group max-h-[85vh] relative w-auto  hover:opacity-100 flex items-end">
