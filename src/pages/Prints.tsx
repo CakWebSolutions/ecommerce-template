@@ -23,18 +23,18 @@ function Prints() {
   return (
     <>
       <Navbar />
-      <div className="w-screen h-screen bg-white">
-        <div className="flex flex-col w-full">
-          <div className="flex flex-row w-full space-x-[800px] space ml-[150px] mt-[100px] ">
-            <div className="flex gap-8">
+      <div className="w-screen lg:h-screen overflow-auto bg-white">
+        <div className="flex flex-col items-center lg:items-start  ">
+          <div className="flex flex-row lg:w-full lg:bg-transparent bg-[#F4F4F2] w-[300px] lg:space-x-[500px] lg:ml-[200px] lg:mt-[100px] ">
+            <div className="flex gap-8 items-center">
               <button onClick={scrollLeft}>
                 <img
                   src="/arrowPortfolio.png"
                   alt="arrow"
-                  className="h-8 w-14 rotate-180 hover:scale-125 transition-all duration-250"
+                  className="lg:h-8 lg:w-14 w-0 h-0 rotate-180 lg:hover:scale-125 lg:transition-all lg:duration-250"
                 />
               </button>
-              <h1 className="text-[52px] mb-2 font-jacques text-black opacity-60">
+              <h1 className="lg:text-[52px] text-3xl px-1 lg:px-0 mt-4 lg:mt-0 lg:mb-2 font-jacques text-black opacity-60">
                 Featured Paintings
               </h1>
             </div>
@@ -42,28 +42,35 @@ function Prints() {
               <img
                 src="/arrowPortfolio.png"
                 alt="arrow"
-                className="h-8 w-14 hover:scale-125 transition-all duration-250"
+                className="lg:h-8 lg:w-14 h-0 w-0 lg:hover:scale-125 lg:transition-all lg:duration-250"
               />
             </button>
           </div>
-          <div className=" bg-[#F4F4F2] w-screen h-[400px] overflow-visible">
-            <div className="flex w-screen overflow-x-scroll" ref={carouselRef}>
+          <div className=" bg-[#F4F4F2] w-[300px] lg:w-screen lg:h-[400px] h-full overflow-visible">
+            <div
+              className="flex lg:flex-row flex-col gap-12 items-center lg:items-start lg:w-screen lg:overflow-x-scroll"
+              ref={carouselRef}
+            >
               {paintings.map((painting) => (
                 <div
                   key={painting.id}
-                  className="flex flex-col min-w-max overflow-x-auto transition-height duration-300 ease-in-out hover:bg-white hover:mb-8 hover:shadow-xl mt-6 h-[310px] hover:mt-0 hover:h-[450px] py-8 px-8 ml-8 "
+                  className="flex flex-col items-center min-w-max overflow-hidden transition-height duration-300 ease-in-out hover:bg-white hover:mb-8 hover:shadow-xl mt-6 h-[310px] hover:mt-0 hover:h-[450px] py-8 px-8 lg:ml-8 "
                 >
                   <img
                     src={painting.image}
                     alt={painting.paintingname}
-                    className={painting.imageClassName}
+                    className="lg:w-[200px] lg:h-[200px] w-[200px] h-[200px]"
                   />
                   <p className="font-jacques font-bold text-black">
                     {painting.paintingname}
                   </p>
-                  <p className="font-jacques">{painting.artist}</p>
-                  <p className="font-jacques">{painting.description}</p>
-                  <div className={painting.divClassPrice}>
+                  <p className="font-jacques text-black opacity-60">
+                    {painting.artist}
+                  </p>
+                  <p className="font-jacques text-black opacity-60">
+                    {painting.description}
+                  </p>
+                  <div className="flex flex-row space-x-[95px] mt-24">
                     <p className="mt-1 font-jacques font-bold text-black">
                       {painting.price}
                     </p>
