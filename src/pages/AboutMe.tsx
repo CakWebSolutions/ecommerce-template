@@ -120,7 +120,7 @@ function AboutMe() {
                   placeholder={
                     errors.email ? (errors.email.message as string) : "Email"
                   }
-                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[170px] md:w-[250px] lg:w-[300px] placeholder:font-jacques bg-white shadow-custom ${
+                  className={`text-black placeholder:text-black placeholder:opacity-60 px-4 outline-none font-jacques h-[40px] w-[300px] placeholder:font-jacques bg-white shadow-custom ${
                     errors.email ? "text-black opacity-60 font-jacques" : ""
                   }`}
                   type="email"
@@ -153,11 +153,10 @@ function AboutMe() {
                 <button
                   type="submit"
                   disabled={isSubmitting || Object.keys(errors).length > 0}
-                  className={`bg-[#F4F4F2] text-xl font-typewriter   w-40 h-12 ${
-                    isSubmitting
+                  className={`bg-[#F4F4F2] text-xl font-typewriter   w-40 h-12 ${isSubmitting
                       ? "cursor-not-allowed opacity-50"
                       : "hover:bg-[#EAEAEA] hover:duration-500 "
-                  } rounded-[34px] shadow-custom text-black font-bold font-jacques transition-all duration-300 hover:scale-105`}
+                    } rounded-[34px] shadow-custom text-black font-bold font-jacques transition-all duration-300 hover:scale-105`}
                 >
                   {isSubmitting ? "Sending..." : "Send"}
                 </button>
