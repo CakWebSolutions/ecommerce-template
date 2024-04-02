@@ -40,7 +40,7 @@ function Navbar() {
 
 
   return (
-    <div className="absolute lg:absolute lg:top-0 lg:left-0"
+    <div className="relative lg:absolute lg:top-0 lg:left-0"
       style={{ zIndex: 100 }}
     >
       <div
@@ -49,7 +49,7 @@ function Navbar() {
 
         className={`flex flex-row sm:flex-col justify-between lg:justify-between lg:items-center h-20 lg:h-screen py-4 item sm:space-x-16
        sm:hover:space-x-0 bg-white shadow-2xl transition-all duration-[1s] ease-in-out w-screen
-        ${isHovered ? "w-full sm:w-44" : "w-full sm:w-16"}`}
+        ${isHovered ? "w-full lg:w-44" : "w-full lg:w-16"}`}
       >
 
 
@@ -110,41 +110,36 @@ function Navbar() {
 
         {/*Navbar icons onHover transitions*/}
         <div className="">
-          <div className="hidden lg:flex flex-col items-center mt-24 space-y-12">
+
+          <div className="hidden lg:flex flex-col items-start justify-center mt-24">
             {icons.map((icon, index) => (
               <Link legacyBehavior key={index} href={icon.path}>
-                <a className="group flex items-center w-full">
+                <a className={`group flex space-y-8 items-end ${isHovered ? '' : ''} `}>
                   {/* Icon Always Visible */}
-                  {(isHovered ? null :
-                    (
-                      <img
-                        style={isHovered ? hideStyle : showStyle}
-                        src={`/${icon.name}.png`}
-                        alt={icon.label} className="w-5 h-5 transition-opacity overflow-hidden opacity-100 duration-0" />
-                    ))}
+
+                  <img
+                    src={`/${icon.name}.png`}
+                    alt={icon.label} className={`w-6 h-6 transition-opacity opacity-100 duration-200 
+                     `} />
+
 
                   {/* Text Label Slides In */}
-                  <div className="flex flex-row space-x-4">
-                    <img
-                      style={!isHovered ? SHhideStyle : showStyle}
-                      src={`/${icon.name}.png`}
-                      alt={icon.label} className="w-5 h-5 transition-opacity opacity-100 duration-0 overflow-auto" />
-                    <span style={
-                      isHovered
-                        ? { ...showStyle, transform: "translateX(0) scale(1)", overflow: 'hidden' }
-                        : { ...hideStyle, transform: "translateX(-1.5rem) scale(0.1)", overflow: 'hidden' }
-                    }
-                      className={`ml-5 transition-transform duration-700`}>
-                      {icon.label}
-                    </span>
-                  </div>
+
+                  <span style={
+                    isHovered
+                      ? { ...showStyle, transform: "translateX(0) scale(1)", overflow: 'hidden' }
+                      : { ...hideStyle, transform: "translateX(-1.5rem) scale(0.1)", overflow: 'hidden' }
+                  }
+                    className={`ml-5 text-center text-lg font-playfairBold hover:text-black transition-all transform duration-700`}>
+                    {icon.label}
+                  </span>
                 </a>
               </Link>
             ))}
           </div>
         </div>
 
-        <div></div> {/*empty div for the layout*/}
+        <div className=""></div> {/*empty div for the layout*/}
 
       </div>
     </div>
