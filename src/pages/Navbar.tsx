@@ -48,7 +48,7 @@ function Navbar() {
         onMouseLeave={() => setIsHovered(false)}
 
         className={`flex flex-row sm:flex-col justify-between lg:justify-between lg:items-center h-20 lg:h-screen py-4 item sm:space-x-16
-       sm:hover:space-x-0 bg-white shadow-2xl transition-all duration-[1s] ease-in-out w-screen
+       sm:hover:space-x-0 bg-white overflow-hidden shadow-2xl transition-all duration-[1s] ease-in-out w-screen
         ${isHovered ? "w-full lg:w-44" : "w-full lg:w-16"}`}
       >
 
