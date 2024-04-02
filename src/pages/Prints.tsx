@@ -1,22 +1,64 @@
 "use client";
 
-import React, { useRef } from "react";
-import { paintings } from "../components/Paintings";
+import React, { useRef, useEffect } from "react";
 import Navbar from "./Navbar";
 import "@/styles/globals.css";
 
+interface Painting {
+  _id: string;
+  name: string;
+  index: number;
+  path_to_src: string;
+  costs: string;
+  description: string;
+  artist: string;
+}
+
 function Prints() {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [paintings, setPaintings] = React.useState<Painting[]>([]); // Step 1
+  const [currentIndex, setCurrentIndex] = React.useState(0); // Step 2
+
+  const itemsCount = paintings.length;
+
+  useEffect(() => {
+    const fetchPaintings = async () => {
+      try {
+        const response = await fetch("/api/SampleData"); // Adjust this endpoint to where your backend serves the paintings data
+        if (!response.ok) throw new Error("Could not fetch paintings");
+        const data = await response.json();
+        setPaintings(data); // Step 4
+      } catch (error) {
+        console.error("Failed to load paintings:", error);
+      }
+    };
+    fetchPaintings();
+  }, []);
 
   const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -600, behavior: "smooth" }); // Assuming each item + gap roughly equals 600px
-    }
+    setCurrentIndex((prevIndex) => {
+      // Calculate new index by subtracting one to move left
+      // Use modulo to wrap around to the last item if currently at the first item
+      const newIndex = (prevIndex - 1 + itemsCount) % itemsCount;
+      scrollToItem(newIndex); // Scroll to the item at the new index
+      return newIndex; // Update the state to the new index
+    });
   };
 
   const scrollRight = () => {
+    setCurrentIndex((prevIndex) => {
+      // Calculate new index by adding one to move right
+      // Use modulo to wrap around to the first item if currently at the last item
+      const newIndex = (prevIndex + 1) % itemsCount;
+      scrollToItem(newIndex); // Scroll to the item at the new index
+      return newIndex; // Update the state to the new index
+    });
+  };
+
+  const scrollToItem = (index: any) => {
+    const scrollAmount = index * 600; // Assuming each item + gap roughly equals 600px
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 600, behavior: "smooth" }); // Adjust this value as per your item widths including margins
+      carouselRef.current.scroll({ left: scrollAmount, behavior: "smooth" });
     }
   };
 
@@ -53,40 +95,42 @@ function Prints() {
             >
               {paintings.map((painting) => (
                 <div
-                  key={painting.id}
+                  key={painting._id}
                   className="flex flex-col items-center min-w-max overflow-hidden transition-height duration-300 ease-in-out hover:bg-white hover:mb-8 hover:shadow-xl mt-6 h-[310px] hover:mt-0 hover:h-[450px] py-8 px-8 lg:ml-8 "
                 >
                   <img
-                    src={painting.image}
-                    alt={painting.paintingname}
+                    src={painting.path_to_src}
+                    alt={painting.name}
                     className="lg:w-[200px] lg:h-[200px] w-[200px] h-[200px]"
                   />
                   <p className="font-jacques font-bold text-black">
-                    {painting.paintingname}
+                    {painting.name}
                   </p>
                   <p className="font-jacques text-black opacity-60">
                     {painting.artist}
                   </p>
-                  <p className="font-jacques text-black opacity-60">
-                    {painting.description}
-                  </p>
-                  <div className="flex flex-row space-x-[95px] mt-24">
-                    <p className="mt-1 font-jacques font-bold text-black">
-                      {painting.price}
+                  <>
+                    <p className="font-jacques text-black opacity-60">
+                      {painting.description}
                     </p>
-                    <div className="flex flex-row gap-2">
-                      <img
-                        className="w-[30px] h-[30px]"
-                        src="/share.png"
-                        alt="share"
-                      />
-                      <img
-                        className="w-[30px] h-[30px]"
-                        src="/addCart.png"
-                        alt="cart"
-                      />
+                    <div className="flex flex-row space-x-[95px] mt-24">
+                      <p className="mt-1 font-jacques font-bold text-black">
+                        {painting.costs}
+                      </p>
+                      <div className="flex flex-row gap-2">
+                        <img
+                          className="w-[30px] h-[30px]"
+                          src="/share.png"
+                          alt="share"
+                        />
+                        <img
+                          className="w-[30px] h-[30px]"
+                          src="/addCart.png"
+                          alt="cart"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  </>
                 </div>
               ))}
             </div>
