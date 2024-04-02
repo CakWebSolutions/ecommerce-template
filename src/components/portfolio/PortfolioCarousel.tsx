@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // Assuming "@/styles/globals.css" is correctly imported elsewhere in your app
 
 interface DataItem {
@@ -13,6 +13,7 @@ interface DataItem {
 function PortfolioCarousel() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [dataItems, setDataItems] = useState<DataItem[]>([]);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,45 +30,57 @@ function PortfolioCarousel() {
   }, []);
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? dataItems.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex === 0 ? dataItems.length - 1 : prevIndex - 1;
+      return newIndex;
+    });
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === dataItems.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex === dataItems.length - 1 ? 0 : prevIndex + 1;
+      return newIndex;
+    });
   };
 
-  // Display only the current item
+  // Ensure refs array is always the same size as dataItems
   const currentItem = dataItems[currentIndex];
 
   return (
-    <div className="relative max-w-lg mx-auto overflow-hidden">
-      <button
-        onClick={goToPrevious}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none text-2xl cursor-pointer z-10"
-      >
-        ‹
-      </button>
+    <div className="flex flex-row">
+      <div>
+        <button className="absolute left-24 mt-6" onClick={goToPrevious}>
+          <img
+            src="/portfolioarrow.png"
+            alt="Arrow to the left"
+            className="w-8 h-14 mt-[0px]"
+          />
+        </button>
+      </div>
       {currentItem && (
-        <div className="flex justify-center">
+        <div
+          key={currentItem._id}
+          className={`flex flex-col mt-[-250px] justify-center transition-opacity duration-500 fade-in`}
+        >
           <img
             src={currentItem.path_to_src}
             alt={currentItem.name}
-            className="w-[195px] h-[244px] sm:w-[250px] sm:h-[300px]"
+            className="w-[195px] h-[244px] sm:w-[250px] sm:h-[300px] shadow-custom2 transition-all hover:scale-105 duration-300 ease-in-out"
           />
-          <h1>{currentItem.name}</h1>
-          {/* Display other details as needed */}
+          <h1 className="text-center text-black font-bold mt-4 text-xl font-jacques">
+            {currentItem.name}
+          </h1>
         </div>
       )}
-      <button
-        onClick={goToNext}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-transparent border-none text-2xl cursor-pointer z-10"
-      >
-        ›
-      </button>
+      <div className="absolute right-8 mt-6">
+        <button onClick={goToNext}>
+          <img
+            src="/portfolioarrow.png"
+            alt="Arrow to the left"
+            className="w-8 h-14 rotate-180"
+          />
+        </button>
+      </div>
     </div>
   );
 }
