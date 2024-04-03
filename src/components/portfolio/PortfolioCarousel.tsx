@@ -62,7 +62,10 @@ function PortfolioCarousel() {
   return (
     <div className="flex flex-row">
       <div>
-        <button className="absolute left-24 mt-6" onClick={goToPrevious}>
+        <button
+          className="absolute lg:left-24 lg:mt-6 md:left-12 md:mt-[-125px] left-2 mt-[-150px]"
+          onClick={goToPrevious}
+        >
           <img
             src="/portfolioarrow.png"
             alt="Arrow to the left"
@@ -84,7 +87,7 @@ function PortfolioCarousel() {
           </h1>
         </div>
       )}
-      <div className="absolute right-8 mt-6">
+      <div className="absolute lg:right-8 right-2 mt-[-150px] md:right-12 md:mt-[-125px] lg:mt-6">
         <button onClick={goToNext}>
           <img
             src="/portfolioarrow.png"
