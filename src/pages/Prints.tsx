@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import Navbar from "./Navbar";
 import "@/styles/globals.css";
+import { useRouter } from "next/router";
 
 interface Painting {
   _id: string;
@@ -18,8 +19,22 @@ function Prints() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [paintings, setPaintings] = React.useState<Painting[]>([]); // Step 1
   const [currentIndex, setCurrentIndex] = React.useState(0); // Step 2
-
+  const router = useRouter();
   const itemsCount = paintings.length;
+
+  const openCard = (painting: Painting) => {
+    // Construct the URL with all necessary query parameters
+    const queryParameters = new URLSearchParams({
+      paintingId: painting._id,
+      name: encodeURIComponent(painting.name),
+      imageSrc: encodeURIComponent(painting.path_to_src),
+      costs: encodeURIComponent(painting.costs),
+      description: encodeURIComponent(painting.description),
+      artist: encodeURIComponent(painting.artist)
+    }).toString();
+
+    router.push(`/prints/Card?${queryParameters}`);
+  };
 
   useEffect(() => {
     const fetchPaintings = async () => {
@@ -95,6 +110,7 @@ function Prints() {
             >
               {paintings.map((painting) => (
                 <div
+                  onClick={() => openCard(painting)}
                   key={painting._id}
                   className="flex flex-col items-center min-w-max overflow-hidden transition-height duration-300 ease-in-out hover:bg-white hover:mb-8 hover:shadow-xl mt-6 h-[310px] hover:mt-0 hover:h-[450px] py-8 px-8 lg:ml-8 "
                 >

@@ -26,18 +26,6 @@
   font-style: normal;
 }
 
-@keyframes fadeInAnimation {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-  animation: fadeInAnimation 1.2s ease-out forwards;
-}
 
 @keyframes fadeInAnimation {
   from {

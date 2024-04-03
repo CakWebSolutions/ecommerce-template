@@ -46,6 +46,8 @@ function PortfolioCarousel() {
     });
   };
 
+  const currentItem = dataItems[currentIndex];
+
   const openCard = () => {
     if (currentItem) {
       router.push
@@ -55,9 +57,6 @@ function PortfolioCarousel() {
     }
   };
 
-
-  // Display only the current item
-  const currentItem = dataItems[currentIndex];
 
   return (
     <div className="flex flex-row">
@@ -75,7 +74,9 @@ function PortfolioCarousel() {
       </div>
       {currentItem && (
         <div
-          onClick={openCard} className={`flex flex-col mt-[-250px] justify-center transition-opacity duration-500 fade-in`}
+          key={currentItem._id}
+          className={`flex flex-col mt-[-250px] justify-center transition-opacity duration-500 fade-in`}
+          onClick={openCard}
         >
           <img
             src={currentItem.path_to_src}
