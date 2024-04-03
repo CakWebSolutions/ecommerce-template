@@ -11,9 +11,9 @@ const RoomView = () => {
       <Navbar />
 
       <div className="background background-sm">
-        <div className="absolute lg:top-0 lg:left-16 md:top-32 md:left-8 top-24 left-0">
+        <div className="absolute lg:top-8 lg:left-20 md:top-28 md:left-8 top-24 left-2">
           <Link legacyBehavior href="/Prints">
-            <a className="flex flex-row items-center space-x-3 w-fit px-4 py-2 transition duration-200 rounded hover:bg-gray-100">
+            <a className="flex flex-row items-center space-x-3 w-fit px-4 py-2 transition duration-200 rounded lg:bg-transparent bg-gray-100 lg:hover:bg-gray-100">
               <img src='/arrow.png' className='w-5 rotate-180' alt='back'></img>
               <h1>Back</h1>
             </a>
