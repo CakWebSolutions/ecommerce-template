@@ -16,10 +16,10 @@ function Navbar() {
 
   const icons = [
     { name: "home", label: "Home", path: "/" },
-    { name: "paintings", label: "Portfolio", path: "./Portfolio" },
-    { name: "store", label: "Prints", path: "./Prints" },
-    { name: "shop", label: "Cart", path: "./Cart" },
-    { name: "info", label: "Info", path: "./AboutMe" },
+    { name: "paintings", label: "Portfolio", path: "/Portfolio" },
+    { name: "store", label: "Prints", path: "/Prints" },
+    { name: "shop", label: "Cart", path: "/Cart" },
+    { name: "info", label: "Info", path: "/AboutMe" },
   ];
 
   const showStyle = {
@@ -57,7 +57,9 @@ function Navbar() {
             style={isHovered ? showStyle : hideStyle}
             className="flex flex-col text-3xl absolute"
           >
-            <img src="/joanPopli.png" alt="Close" className="p-5" />
+            <Link href='/'>
+              <img src="/joanPopli.png" alt="Close" className="p-5" />
+            </Link>
           </div>
         </div>
         {/* Toggle button for small screens */}

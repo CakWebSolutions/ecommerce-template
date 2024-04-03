@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useRef, useEffect } from "react";
@@ -110,11 +111,11 @@ function Prints() {
             >
               {paintings.map((painting) => (
                 <div
-                  onClick={() => openCard(painting)}
                   key={painting._id}
                   className="flex flex-col items-center min-w-max overflow-hidden transition-height duration-300 ease-in-out hover:bg-white hover:mb-8 hover:shadow-xl mt-6 h-[310px] hover:mt-0 hover:h-[450px] py-8 px-8 lg:ml-8 "
                 >
                   <img
+                    onClick={() => openCard(painting)}
                     src={painting.path_to_src}
                     alt={painting.name}
                     className="lg:w-[200px] lg:h-[200px] w-[200px] h-[200px]"
