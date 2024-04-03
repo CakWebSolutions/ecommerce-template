@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+/* eslint-disable @next/next/no-img-element */
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 // Assuming "@/styles/globals.css" is correctly imported elsewhere in your app
 
 interface DataItem {
@@ -13,6 +15,8 @@ interface DataItem {
 function PortfolioCarousel() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [dataItems, setDataItems] = useState<DataItem[]>([]);
+  const router = useRouter(); // Use Next.js useRouter hook for navigation
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,8 +46,17 @@ function PortfolioCarousel() {
     });
   };
 
-  // Ensure refs array is always the same size as dataItems
   const currentItem = dataItems[currentIndex];
+
+  const openCard = () => {
+    if (currentItem) {
+      router.push
+        (`/Cart?paintingId=${currentItem._id}
+      &name=${encodeURIComponent(currentItem.name)}
+      &imageSrc=${encodeURIComponent(currentItem.path_to_src)}`);
+    }
+  };
+
 
   return (
     <div className="flex flex-row">
@@ -63,6 +76,7 @@ function PortfolioCarousel() {
         <div
           key={currentItem._id}
           className={`flex flex-col mt-[-250px] justify-center transition-opacity duration-500 fade-in`}
+          onClick={openCard}
         >
           <img
             src={currentItem.path_to_src}

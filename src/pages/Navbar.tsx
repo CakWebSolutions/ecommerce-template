@@ -32,11 +32,6 @@ function Navbar() {
     transition: " 0.7s ease-in-out",
   };
 
-  const SHhideStyle = {
-    opacity: 0,
-    transition: " ",
-  };
-
   return (
     <div
       className="relative lg:absolute lg:top-0 lg:left-0"
@@ -83,9 +78,8 @@ function Navbar() {
         </div>
         {/* Navbar for small screens */}
         <div
-          className={`lg:hidden fixed inset-0 bg-white z-30 ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out flex flex-col items-start px-6 md:px-16 justify-center space-y-12 lg:hidden`}
+          className={`lg:hidden fixed inset-0 bg-white z-30 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            } transition-transform duration-300 ease-in-out flex flex-col items-start px-6 md:px-16 justify-center space-y-12 lg:hidden`}
         >
           {icons.map((icon, index) => (
             <Link legacyBehavior key={index} href={icon.path}>
@@ -104,9 +98,8 @@ function Navbar() {
         </div>
         {/* Navbar for mid screens */}
         <div
-          className={`sm:hidden lg:hidden fixed inset-0 bg-white z-30 ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out flex flex-col items-start px-6 justify-center space-y-12 lg:hidden`}
+          className={`sm:hidden lg:hidden fixed inset-0 bg-white z-30 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            } transition-transform duration-300 ease-in-out flex flex-col items-start px-6 justify-center space-y-12 lg:hidden`}
         >
           {icons.map((icon, index) => (
             <Link legacyBehavior key={index} href={icon.path}>
@@ -123,15 +116,16 @@ function Navbar() {
             </Link>
           ))}
         </div>
+
+
         {/*Large Screens Navbar icons onHover transitions*/}
-        <div className="">
-          <div className="hidden md:hidden lg:flex flex-col items-start justify-center mt-24">
+        <div className="-mt-20">
+          <div className="hidden md:hidden lg:flex flex-col items-start justify-between mt-24">
             {icons.map((icon, index) => (
               <Link legacyBehavior key={index} href={icon.path}>
                 <a
-                  className={`group flex hover:opacity-100 opacity-60 transition duration-600 text-gray-500 hover:text-black space-y-8 items-end ${
-                    isHovered ? "" : ""
-                  } `}
+                  className={`group flex hover:opacity-100 opacity-60 transition duration-600 text-gray-500 hover:text-black space-y-8 items-end ${isHovered ? "" : ""
+                    } `}
                 >
                   {/* Icon Always Visible */}
 
@@ -148,15 +142,15 @@ function Navbar() {
                     style={
                       isHovered
                         ? {
-                            ...showStyle,
-                            transform: "translateX(0) scale(1)",
-                            overflow: "hidden",
-                          }
+                          ...showStyle,
+                          transform: "translateX(0) scale(1)",
+                          overflow: "hidden",
+                        }
                         : {
-                            ...hideStyle,
-                            transform: "translateX(-1.5rem) scale(0.1)",
-                            overflow: "hidden",
-                          }
+                          ...hideStyle,
+                          transform: "translateX(-1.5rem) scale(0.1)",
+                          overflow: "hidden",
+                        }
                     }
                     className={`ml-5 text-center text-lg font-playfairBold  transition-all transform duration-700`}
                   >
@@ -167,7 +161,7 @@ function Navbar() {
             ))}
           </div>
         </div>
-        <div className=""></div> {/*empty div for the layout*/}
+        <div className=""></div>
       </div>
     </div>
   );
