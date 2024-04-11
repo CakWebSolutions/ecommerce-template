@@ -24,7 +24,7 @@ function Navbar() {
 
   const showStyle = {
     opacity: 1,
-    transition: "opacity 0.7s ease-in-out",
+    transition: "opacity 0.4s ease-in-out",
   };
 
   const hideStyle = {
@@ -41,7 +41,7 @@ function Navbar() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className={`flex flex-row sm:flex-col justify-between lg:justify-between lg:items-center h-20 lg:h-screen py-4 item sm:space-x-16
-       sm:hover:space-x-0 bg-white overflow-hidden shadow-2xl transition-all duration-[1s] ease-in-out w-screen
+       sm:hover:space-x-0 bg-white overflow-hidden shadow-2xl transition-all duration-[0.6s] ease-in-out w-screen
         ${isHovered ? "w-full lg:w-44" : "w-full lg:w-16"}`}
       >
         <div className="hidden lg:flex flex-col items-center justify-center mt-10">
@@ -126,16 +126,14 @@ function Navbar() {
             {icons.map((icon, index) => (
               <Link legacyBehavior key={index} href={icon.path}>
                 <a
-                  className={`group flex hover:opacity-100 opacity-60 transition duration-600 text-gray-500 hover:text-black space-y-8 items-end ${isHovered ? "" : ""
-                    } `}
+                  className={`group flex hover:opacity-100 opacity-60 hover:translate-x-1 transition duration-600 text-gray-500 hover:text-black space-y-8 items-end`}
                 >
                   {/* Icon Always Visible */}
 
                   <img
                     src={`/${icon.name}.png`}
                     alt={icon.label}
-                    className={`w-6 h-6 transition-opacity duration-200 
-                     `}
+                    className={`w-6 h-6 transition-opacity duration-200`}
                   />
 
                   {/* Text Label Slides In */}
@@ -154,7 +152,7 @@ function Navbar() {
                           overflow: "hidden",
                         }
                     }
-                    className={`ml-5 text-center text-lg font-playfairBold  transition-all transform duration-700`}
+                    className={`ml-5 text-center text-lg font-playfairBold transition-all transform`}
                   >
                     {icon.label}
                   </span>

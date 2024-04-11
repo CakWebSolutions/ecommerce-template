@@ -8,9 +8,7 @@ function RoomView() {
 
   useEffect(() => {
     if (router.isReady) {
-      // Now router.query should be populated
       const src = router.query.imageSrc as string;
-      console.log(src);
       setImageSrc(src);
     }
   }, [router.isReady, router.query.imageSrc]);
